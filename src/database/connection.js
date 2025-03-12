@@ -9,10 +9,16 @@ class DatabaseConnection {
 
   async connect() {
     if (!this.client) {
-      this.client = new MongoClient(this.uri); 
-      let retries = 5; // can change maybe 
+      // connection pooling used to limit the number of connections 
+      this.client = new MongoClient(this.uri, {
+        maxPoolSize: 10,
+        minPoolSize: 5,
+        connectTimeoutMS: 5000,
+        socketTimeoutMS: 30000,
+      });
 
-      // retry connection
+      let retries = 5;
+
       while (retries > 0) {
         try {
           await this.client.connect();

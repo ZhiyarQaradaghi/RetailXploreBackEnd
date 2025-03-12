@@ -1,4 +1,5 @@
 const database = require("../database/connection");
+const { ObjectId } = require("mongodb");
 
 class Product {
   static async getProducts() {
@@ -24,6 +25,23 @@ class Product {
           { description: { $regex: query, $options: "i" } },
           { category: { $regex: query, $options: "i" } },
         ],
+      })
+      .toArray();
+  }
+
+  static async getProductsByIds(productIds) {
+    const collection = await database.getCollection("products");
+    const objectIds = productIds.map((id) => {
+      try {
+        return typeof id === "string" ? new ObjectId(id) : id;
+      } catch (error) {
+        return id;
+      }
+    });
+
+    return collection
+      .find({
+        $or: [{ _id: { $in: objectIds } }, { id: { $in: productIds } }],
       })
       .toArray();
   }

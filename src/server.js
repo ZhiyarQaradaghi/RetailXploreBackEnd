@@ -1,14 +1,26 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const compression = require("compression");
+const rateLimit = require("express-rate-limit");
 const database = require("./database/connection");
 const productRoutes = require("./routes/productRoutes");
+const cartRoutes = require("./routes/cartRoute");
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3003;
 
-// cors
+app.use(compression());
+
+// rate limiting
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  standardHeaders: true,
+  message: "Too many requests, please try again later",
+});
+
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN || "http://localhost:5173",
@@ -18,8 +30,20 @@ app.use(
 
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "../public/images")));
-// our routes
-app.use("/", productRoutes);
+
+// applied rate limiting to all product routes
+app.use("/", apiLimiter, productRoutes);
+app.use("/", apiLimiter, cartRoutes);
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({
+    error:
+      process.env.NODE_ENV === "production"
+        ? "Something went wrong"
+        : err.message,
+  });
+});
 
 // shutdown logic -  "graceful"
 process.on("SIGINT", async () => {
