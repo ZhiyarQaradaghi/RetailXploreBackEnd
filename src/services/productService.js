@@ -18,8 +18,8 @@ class ProductService {
   async getFeaturedProducts() {
     try {
       const products = await Product.getFeaturedProducts();
-      return products.map((product, index) => ({
-        id: index + 1,
+      return products.map((product) => ({
+        id: product._id.toString(),
         name: product.name,
         image: product.image,
         price: product.price,
