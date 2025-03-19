@@ -31,17 +31,20 @@ class Product {
 
   static async getProductsByIds(productIds) {
     const collection = await database.getCollection("products");
-    const objectIds = productIds.map((id) => {
-      try {
-        return typeof id === "string" ? new ObjectId(id) : id;
-      } catch (error) {
-        return id;
-      }
-    });
+    const objectIds = productIds
+      .map((id) => {
+        try {
+          return new ObjectId(id);
+        } catch (error) {
+          console.warn(`Invalid ObjectId: ${id}`);
+          return null;
+        }
+      })
+      .filter((id) => id !== null);
 
     return collection
       .find({
-        $or: [{ _id: { $in: objectIds } }, { id: { $in: productIds } }],
+        _id: { $in: objectIds },
       })
       .toArray();
   }

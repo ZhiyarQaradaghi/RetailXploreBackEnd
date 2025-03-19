@@ -18,11 +18,15 @@ async function initializeDatabase() {
 
     await collection.insertMany(allProducts);
 
-    // Create indexes for better query performance
     await collection.createIndex({ name: 1 });
     await collection.createIndex({ category: 1 });
     await collection.createIndex({ isDiscounted: 1 });
     await collection.createIndex({ price: 1 });
+
+    // clear carts collection
+    const cartsCollection = await database.getCollection("carts");
+    await cartsCollection.deleteMany({});
+    console.log("Carts collection cleared");
 
     console.log("Database initialized successfully with indexes");
     await database.close();
