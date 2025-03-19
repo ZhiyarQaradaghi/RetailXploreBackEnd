@@ -4,9 +4,9 @@ class ProductService {
   async getAllProducts() {
     try {
       const products = await Product.getProducts();
-      return products.map((product, index) => ({
+      return products.map((product) => ({
         ...product,
-        id: index + 1,
+        id: product._id.toString(),
       }));
     } catch (error) {
       console.error("Error fetching all products:", error);
@@ -18,8 +18,8 @@ class ProductService {
   async getFeaturedProducts() {
     try {
       const products = await Product.getFeaturedProducts();
-      return products.map((product, index) => ({
-        id: index + 1,
+      return products.map((product) => ({
+        id: product._id.toString(),
         name: product.name,
         image: product.image,
         price: product.price,
@@ -34,16 +34,17 @@ class ProductService {
   // searches products by name/desc/category, returns empty array if no query
   async searchProducts(query) {
     try {
-      if (!query || typeof query !== 'string') {
+      if (!query || typeof query !== "string") {
         return [];
       }
       const products = await Product.searchProducts(query.toLowerCase().trim());
-      return products.map((product, index) => ({
-        id: index + 1,
+      return products.map((product) => ({
+        id: product._id.toString(),
         name: product.name,
         image: product.image,
         price: product.price,
         category: product.category,
+        description: product.description,
       }));
     } catch (error) {
       console.error("Error searching products:", error);

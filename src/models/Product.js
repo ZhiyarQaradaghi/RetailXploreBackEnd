@@ -41,7 +41,10 @@ class Product {
 
     return collection
       .find({
-        $or: [{ _id: { $in: objectIds } }, { id: { $in: productIds } }],
+        $or: [
+          { _id: { $in: objectIds } },
+          { id: { $in: productIds.map((id) => parseInt(id)) } },
+        ],
       })
       .toArray();
   }
