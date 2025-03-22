@@ -45,6 +45,7 @@ class ProductService {
         price: product.price,
         category: product.category,
         description: product.description,
+        rating: product.rating
       }));
     } catch (error) {
       console.error("Error searching products:", error);
