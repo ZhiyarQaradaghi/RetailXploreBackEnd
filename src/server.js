@@ -6,6 +6,8 @@ const rateLimit = require("express-rate-limit");
 const database = require("./database/connection");
 const productRoutes = require("./routes/productRoutes");
 const cartRoutes = require("./routes/cartRoute");
+const reviewRoutes = require("./routes/reviewsRoute"); // new
+
 require("dotenv").config();
 
 const app = express();
@@ -34,6 +36,7 @@ app.use("/images", express.static(path.join(__dirname, "../public/images")));
 // applied rate limiting to all product routes
 app.use("/", apiLimiter, productRoutes);
 app.use("/", apiLimiter, cartRoutes);
+app.use("/api/reviews", reviewRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
