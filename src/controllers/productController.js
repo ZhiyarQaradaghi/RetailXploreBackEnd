@@ -12,7 +12,7 @@ class ProductController {
       res.status(500).json({ error: "Failed to fetch products" });
     }
   }
-  
+
   async getFeatured(req, res) {
     try {
       const products = await productService.getFeaturedProducts();
@@ -44,6 +44,27 @@ class ProductController {
       });
     } catch (error) {
       res.status(500).json({ error: "Failed to search products" });
+    }
+  }
+
+  async getProductByBarcode(req, res) {
+    try {
+      const barcode = req.params.code;
+      const product = await productService.getProductByBarcode(barcode);
+
+      if (!product) {
+        return res.status(404).json({
+          message: "Product not found",
+          barcode,
+        });
+      }
+
+      res.json({
+        message: "Product found",
+        product,
+      });
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch product by barcode" });
     }
   }
 }

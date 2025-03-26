@@ -7,7 +7,8 @@
       "rating": 4.0,
       "price": "2000 IQD",
       "description": "There is only green available",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123457"
     },
     {
       "image": "/images/fruits/banana.jpg",
@@ -18,7 +19,8 @@
       "description": "Fresh yellow bananas available",
       "isDiscounted": true,
       "discountRate": 15,
-      "newPrice": "1250 IQD"
+      "newPrice": "1250 IQD",
+      "barcode": "5901234123458"
     },
     {
       "image": "/images/fruits/orange.jpg",
@@ -27,7 +29,8 @@
       "rating": 4.2,
       "price": "1800 IQD",
       "description": "Juicy and sweet oranges",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123459"
     },
     {
       "image": "/images/fruits/grapes.jpg",
@@ -38,7 +41,8 @@
       "description": "Available in both green and red",
       "isDiscounted": true,
       "discountRate": 20,
-      "newPrice": "2000 IQD"
+      "newPrice": "2000 IQD",
+      "barcode": "5901234123460"
     },
     {
       "image": "/images/fruits/strawberry.jpg",
@@ -47,7 +51,8 @@
       "rating": 4.7,
       "price": "3000 IQD",
       "description": "Fresh and sweet strawberries",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123461"
     },
     {
       "image": "/images/fruits/watermelon.jpg",
@@ -56,7 +61,8 @@
       "rating": 4.6,
       "price": "3000 IQD",
       "description": "Big and juicy watermelons",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123462"
     },
     {
       "image": "/images/fruits/pineapple.jpg",
@@ -65,7 +71,8 @@
       "rating": 4.4,
       "price": "4000 IQD",
       "description": "Sweet and tropical taste",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123463"
     },
     {
       "image": "/images/fruits/mango.jpg",
@@ -76,7 +83,8 @@
       "description": "Ripe and delicious mangoes",
       "isDiscounted": true,
       "discountRate": 20,
-      "newPrice": "3250 IQD"
+      "newPrice": "3250 IQD",
+      "barcode": "5901234123464"
     },
     {
       "image": "/images/fruits/pomegranate.jpg",
@@ -85,7 +93,8 @@
       "rating": 4.5,
       "price": "2250 IQD",
       "description": "Rich in antioxidants and vitamins",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123465"
     }
   ],
 
@@ -97,7 +106,8 @@
       "rating": 4.5,
       "price": "500 IQD",
       "description": "The most sold one",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123466"
     },
     {
       "image": "/images/drinks/colla.jpg",
@@ -106,7 +116,8 @@
       "rating": 4.8,
       "price": "500 IQD",
       "description": "The classic cola taste",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123467"
     },
     {
       "image": "/images/drinks/pepsi.jpg",
@@ -115,7 +126,8 @@
       "rating": 4.7,
       "price": "500 IQD",
       "description": "Refreshing and fizzy",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123468"
     },
     {
       "image": "/images/drinks/fanta.jpg",
@@ -124,7 +136,8 @@
       "rating": 4.4,
       "price": "500 IQD",
       "description": "Orange-flavored soft drink",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123469"
     },
     {
       "image": "/images/drinks/sprite.jpg",
@@ -133,7 +146,8 @@
       "rating": 4.6,
       "price": "500 IQD",
       "description": "High-energy citrus soda",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123470"
     },
     {
       "image": "/images/drinks/redbull.jpg",
@@ -144,7 +158,8 @@
       "description": "Gives you wings!",
       "isDiscounted": true,
       "discountRate": 15,
-      "newPrice": "2000 IQD"
+      "newPrice": "2000 IQD",
+      "barcode": "5901234123471"
     },
     {
       "image": "/images/drinks/lipton.jpg",
@@ -155,7 +170,8 @@
       "description": "Lemon-flavored iced tea",
       "isDiscounted": true,
       "discountRate": 10,
-      "newPrice": "750 IQD"
+      "newPrice": "750 IQD",
+      "barcode": "5901234123472"
     },
     {
       "image": "/images/drinks/rani.jpg",
@@ -164,7 +180,8 @@
       "rating": 4.2,
       "price": "500 IQD",
       "description": "Sweet and fruity flavor",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123473"
     },
     {
       "image": "/images/drinks/7up.jpg",
@@ -173,7 +190,8 @@
       "rating": 4.5,
       "price": "500 IQD",
       "description": "Lemon-lime refreshing drink",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123474"
     }
   ],
 
@@ -185,7 +203,8 @@
       "rating": 4.8,
       "price": "2500 IQD/kg",
       "description": "High-quality basmati rice",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123475"
     },
     {
       "image": "/images/grains/wheatflour.jpg",
@@ -196,7 +215,8 @@
       "description": "Fine-milled for soft bread",
       "isDiscounted": true,
       "discountRate": 15,
-      "newPrice": "1250 IQD"
+      "newPrice": "1250 IQD",
+      "barcode": "5901234123476"
     },
     {
       "image": "/images/grains/barley.jpg",
@@ -205,7 +225,8 @@
       "rating": 4.3,
       "price": "1200 IQD/kg",
       "description": "Used for soups and animal feed",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123477"
     },
     {
       "image": "/images/grains/corn.jpeg",
@@ -216,7 +237,8 @@
       "description": "Fresh yellow corn kernels",
       "isDiscounted": true,
       "discountRate": 20,
-      "newPrice": "1250 IQD"
+      "newPrice": "1250 IQD",
+      "barcode": "5901234123478"
     },
     {
       "image": "/images/grains/oats.jpg",
@@ -225,7 +247,8 @@
       "rating": 4.7,
       "price": "2000 IQD/kg",
       "description": "Perfect for a healthy breakfast",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123479"
     },
     {
       "image": "/images/grains/quinoa.jpg",
@@ -236,7 +259,8 @@
       "description": "A protein-rich superfood",
       "isDiscounted": true,
       "discountRate": 25,
-      "newPrice": "3750 IQD"
+      "newPrice": "3750 IQD",
+      "barcode": "5901234123480"
     },
     {
       "image": "/images/grains/millet.jpg",
@@ -245,7 +269,8 @@
       "rating": 4.2,
       "price": "1300 IQD/kg",
       "description": "Gluten-free and rich in fiber",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123481"
     },
     {
       "image": "/images/grains/lentils.jpg",
@@ -254,7 +279,8 @@
       "rating": 4.8,
       "price": "2200 IQD/kg",
       "description": "Rich in protein and iron",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123482"
     },
     {
       "image": "/images/grains/chickpeas.jpg",
@@ -265,7 +291,8 @@
       "description": "Used in hummus and salads",
       "isDiscounted": true,
       "discountRate": 15,
-      "newPrice": "1750 IQD"
+      "newPrice": "1750 IQD",
+      "barcode": "5901234123483"
     }
   ],
 
@@ -277,7 +304,8 @@
       "rating": 3.8,
       "price": "2500 IQD",
       "description": "A good one",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123484"
     },
     {
       "image": "/images/dairy/kiri.jpg",
@@ -288,7 +316,8 @@
       "description": "Fresh and creamy cheese",
       "isDiscounted": true,
       "discountRate": 15,
-      "newPrice": "2500 IQD"
+      "newPrice": "2500 IQD",
+      "barcode": "5901234123485"
     },
     {
       "image": "/images/dairy/butter.png",
@@ -297,7 +326,8 @@
       "rating": 4.7,
       "price": "4000 IQD",
       "description": "Made from pure cow's milk",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123486"
     },
     {
       "image": "/images/dairy/yogurt.jpg",
@@ -308,7 +338,8 @@
       "description": "Natural probiotic yogurt",
       "isDiscounted": true,
       "discountRate": 15,
-      "newPrice": "2500 IQD"
+      "newPrice": "2500 IQD",
+      "barcode": "5901234123487"
     },
     {
       "image": "/images/dairy/cream.png",
@@ -317,7 +348,8 @@
       "rating": 4.2,
       "price": "3500 IQD",
       "description": "Thick and fresh cream",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123488"
     },
     {
       "image": "/images/dairy/kefir.png",
@@ -326,7 +358,8 @@
       "rating": 4.3,
       "price": "3000 IQD",
       "description": "Fermented milk drink for gut health",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123489"
     },
     {
       "image": "/images/dairy/mozzarella.jpg",
@@ -335,7 +368,8 @@
       "rating": 4.8,
       "price": "6000 IQD/kg",
       "description": "Perfect for pizzas and pastas",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123490"
     },
     {
       "image": "/images/dairy/ghee.jpg",
@@ -344,7 +378,8 @@
       "rating": 4.4,
       "price": "4500 IQD",
       "description": "Clarified butter, rich in flavor",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123491"
     },
     {
       "image": "/images/dairy/ricotta.jpg",
@@ -355,7 +390,8 @@
       "description": "Soft and mild-flavored cheese",
       "isDiscounted": true,
       "discountRate": 15,
-      "newPrice": "5000 IQD"
+      "newPrice": "5000 IQD",
+      "barcode": "5901234123492"
     }
   ],
 
@@ -367,7 +403,8 @@
       "rating": 4.7,
       "price": "2250 IQD",
       "description": "Sweet and optimal taste!",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123493"
     },
     {
       "image": "/images/snacks/oreo.jpg",
@@ -378,7 +415,8 @@
       "description": "Crunchy chocolate cookies with creamy filling",
       "isDiscounted": true,
       "discountRate": 10,
-      "newPrice": "1750 IQD"
+      "newPrice": "1750 IQD",
+      "barcode": "5901234123494"
     },
     {
       "image": "/images/snacks/lays.jpg",
@@ -387,7 +425,8 @@
       "rating": 4.3,
       "price": "1500 IQD",
       "description": "Crispy and flavorful potato chips",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123495"
     },
     {
       "image": "/images/snacks/pringles.jpg",
@@ -396,7 +435,8 @@
       "rating": 4.6,
       "price": "3000 IQD",
       "description": "Stackable potato chips with a unique crunch",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123496"
     },
     {
       "image": "/images/snacks/snickers.jpg",
@@ -407,7 +447,8 @@
       "description": "Chocolate bar filled with caramel, peanuts, and nougat",
       "isDiscounted": true,
       "discountRate": 15,
-      "newPrice": "2000 IQD"
+      "newPrice": "2000 IQD",
+      "barcode": "5901234123497"
     },
     {
       "image": "/images/snacks/twix.jpg",
@@ -416,7 +457,8 @@
       "rating": 4.7,
       "price": "2200 IQD",
       "description": "Crunchy biscuit, caramel, and chocolate layers",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123498"
     },
     {
       "image": "/images/snacks/doritos.jpg",
@@ -425,7 +467,8 @@
       "rating": 4.4,
       "price": "1800 IQD",
       "description": "Bold and cheesy flavored tortilla chips",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123499"
     },
     {
       "image": "/images/snacks/kitkat.jpg",
@@ -436,7 +479,8 @@
       "description": "Crispy wafer covered in smooth chocolate",
       "isDiscounted": true,
       "discountRate": 20,
-      "newPrice": "2250 IQD"
+      "newPrice": "2250 IQD",
+      "barcode": "5901234123500"
     },
     {
       "image": "/images/snacks/m&ms.jpg",
@@ -445,7 +489,8 @@
       "rating": 4.6,
       "price": "3200 IQD",
       "description": "Colorful chocolate candies with a crunchy shell",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123501"
     }
   ],
 
@@ -457,7 +502,8 @@
       "rating": 4.5,
       "price": "1500 IQD",
       "description": "A good and healthy bread",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123502"
     },
     {
       "image": "/images/bakery/cake.jpg",
@@ -468,7 +514,8 @@
       "description": "Flaky and buttery French pastry.",
       "isDiscounted": true,
       "discountRate": 15,
-      "newPrice": "1750 IQD"
+      "newPrice": "1750 IQD",
+      "barcode": "5901234123503"
     },
     {
       "image": "/images/bakery/donut.png",
@@ -477,7 +524,8 @@
       "rating": 4.6,
       "price": "2500 IQD",
       "description": "Sweet, deep-fried treat with icing.",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123504"
     },
     {
       "image": "/images/bakery/sourdough.jpg",
@@ -486,7 +534,8 @@
       "rating": 4.8,
       "price": "3000 IQD",
       "description": "Tangy, chewy, and perfect for sandwiches.",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123505"
     },
     {
       "image": "/images/bakery/Brownies.jpg",
@@ -497,7 +546,8 @@
       "description": "Rich and fudgy chocolate dessert.",
       "isDiscounted": true,
       "discountRate": 15,
-      "newPrice": "2000 IQD"
+      "newPrice": "2000 IQD",
+      "barcode": "5901234123506"
     },
     {
       "image": "/images/bakery/slice.jpg",
@@ -506,7 +556,8 @@
       "rating": 4.7,
       "price": "3500 IQD",
       "description": "Soft, layered, and deliciously sweet.",
-      "isDiscounted": false
+      "isDiscounted": false,
+      "barcode": "5901234123507"
     },
     {
       "image": "/images/bakery/Puff-Pastry.jpg",
@@ -517,7 +568,8 @@
       "description": "Crispy, flaky layers of delicious pastry.",
       "isDiscounted": true,
       "discountRate": 20,
-      "newPrice": "2250 IQD"
+      "newPrice": "2250 IQD",
+      "barcode": "5901234123508"
     }
   ]
 }

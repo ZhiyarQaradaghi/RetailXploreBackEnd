@@ -48,6 +48,11 @@ class Product {
       })
       .toArray();
   }
+
+  static async getProductByBarcode(barcode) {
+    const collection = await database.getCollection("products");
+    return collection.findOne({ barcode });
+  }
 }
 
 module.exports = Product;
