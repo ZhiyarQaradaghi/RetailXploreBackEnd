@@ -74,6 +74,7 @@ class ProductService {
         price: product.price,
         category: product.category,
         description: product.description,
+        rating: product.rating,
         barcode,
       };
 
