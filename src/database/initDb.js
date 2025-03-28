@@ -1,5 +1,6 @@
 const database = require("./connection");
 const products = require("../data/products.json");
+const bcrypt = require("bcryptjs");
 
 async function initializeDatabase() {
   try {
@@ -27,6 +28,20 @@ async function initializeDatabase() {
     const cartsCollection = await database.getCollection("carts");
     await cartsCollection.deleteMany({});
     console.log("Carts collection cleared");
+
+    const adminCollection = await database.getCollection("admins");
+    await adminCollection.deleteMany({});
+
+    // this creates a default admin 
+    const hashedPassword = await bcrypt.hash("admin123", 10);
+    await adminCollection.insertOne({
+      name: "Admin User",
+      email: "admin@retailxplore.com",
+      password: hashedPassword,
+      role: "admin",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
 
     console.log("Database initialized successfully with indexes");
     await database.close();
