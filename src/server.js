@@ -8,6 +8,7 @@ const productRoutes = require("./routes/productRoutes");
 const cartRoutes = require("./routes/cartRoute");
 const reviewRoutes = require("./routes/reviewsRoute");
 const authRoutes = require("./routes/authRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 require("dotenv").config();
 
@@ -39,6 +40,7 @@ app.use("/", apiLimiter, productRoutes);
 app.use("/", apiLimiter, cartRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/auth", authRoutes);
+app.use("/admin", adminRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

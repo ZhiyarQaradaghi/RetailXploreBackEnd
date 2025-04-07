@@ -47,3 +47,30 @@ npm install node-cache compression express-rate-limit
 - POST `/cart/add` - Add product to cart
 - POST `/cart/remove` - Remove product from cart
 - POST `/cart/clear` - Clear cart contents
+
+### Review Endpoints
+
+- POST `/reviews` - Create a new review
+- GET `/reviews/:id` - Get reviews for a product
+- PUT `/reviews/:id` - Update a review
+- DELETE `/reviews/:id` - Delete a review
+
+### Auth Endpoints
+
+- POST `/auth/login` - Login a user
+- POST `/auth/register` - Register a new user
+- POST `/auth/logout` - Logout a user
+
+### Admin Endpoints (Protected)
+
+- GET `/admin/statistics` - Get admin statistics
+- POST `/admin/products` - Create a new product
+- PUT `/admin/products/:id` - Update a product
+- DELETE `/admin/products/:id` - Delete a product
+- POST `/admin/featured/:id` - Add product to featured items
+- DELETE `/admin/featured/:id` - Remove product from featured items
+- POST `/admin/discounts/:id` - Add discount to product
+- DELETE `/admin/discounts/:id` - Remove discount from product
+- POST `/admin/barcode/:id` - Assign barcode to product
+- PUT `/admin/barcode/:id` - Update product barcode
+- DELETE `/admin/barcode/:id` - Remove product barcode

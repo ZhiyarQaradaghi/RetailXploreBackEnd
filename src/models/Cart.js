@@ -1,5 +1,6 @@
 const database = require("../database/connection");
 const { ObjectId } = require("mongodb");
+const Product = require("./Product");
 
 class Cart {
   static async getCart(cartId) {
@@ -83,6 +84,47 @@ class Cart {
 
     await collection.insertOne(newCart);
     return newCart;
+  }
+
+  static async getMostAddedProducts(limit = 10) {
+    const collection = await database.getCollection("carts");
+
+    // this is the query to get the most added products
+    const result = await collection
+      .aggregate([
+        { $unwind: "$items" },
+        {
+          $group: {
+            _id: "$items.productId",
+            count: { $sum: 1 },
+          },
+        },
+        { $sort: { count: -1 } },
+        { $limit: limit },
+      ])
+      .toArray();
+
+    // this is the query to get the product details for each ID
+    const productIds = result.map((item) => item._id);
+    const products = await Product.getProductsByIds(productIds);
+
+    // this is the query to combine the count with the product details
+    return result.map((item) => {
+      const product = products.find((p) => p._id.toString() === item._id);
+      return {
+        productId: item._id,
+        count: item.count,
+        product: product
+          ? {
+              id: product._id.toString(),
+              name: product.name,
+              image: product.image,
+              price: product.price,
+              category: product.category,
+            }
+          : null,
+      };
+    });
   }
 }
 

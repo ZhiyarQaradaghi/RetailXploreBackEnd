@@ -53,6 +53,74 @@ class Product {
     const collection = await database.getCollection("products");
     return collection.findOne({ barcode });
   }
+
+  static async createProduct(productData) {
+    const collection = await database.getCollection("products");
+    const result = await collection.insertOne(productData);
+    return { _id: result.insertedId, ...productData };
+  }
+
+  static async updateProduct(id, updateData) {
+    const collection = await database.getCollection("products");
+    let objectId;
+
+    try {
+      objectId = new ObjectId(id);
+    } catch (error) {
+      return null;
+    }
+
+    const result = await collection.findOneAndUpdate(
+      { _id: objectId },
+      { $set: updateData },
+      { returnDocument: "after" }
+    );
+
+    return result;
+  }
+
+  static async deleteProduct(id) {
+    const collection = await database.getCollection("products");
+    let objectId;
+
+    try {
+      objectId = new ObjectId(id);
+    } catch (error) {
+      return null;
+    }
+
+    const result = await collection.deleteOne({ _id: objectId });
+    return result.deletedCount > 0;
+  }
+
+  static async getTotalCount() {
+    const collection = await database.getCollection("products");
+    return collection.countDocuments();
+  }
+
+  static async getFeaturedCount() {
+    const collection = await database.getCollection("products");
+    return collection.countDocuments({ isDiscounted: true });
+  }
+
+  static async getDiscountedCount() {
+    const collection = await database.getCollection("products");
+    return collection.countDocuments({
+      isDiscounted: true,
+      discountRate: { $exists: true },
+      newPrice: { $exists: true },
+    });
+  }
+
+  static async getProductsByCategory() {
+    const collection = await database.getCollection("products");
+    return collection
+      .aggregate([
+        { $group: { _id: "$category", count: { $sum: 1 } } },
+        { $project: { category: "$_id", count: 1, _id: 0 } },
+      ])
+      .toArray();
+  }
 }
 
 module.exports = Product;
