@@ -8,6 +8,7 @@ class AdminService {
     try {
       //  count for top products, total products, featured products, discounted products and products by category
       const topProducts = await Cart.getMostAddedProducts();
+      const latestProduct = await Product.getLatestProduct(); // new 
       const totalProducts = await Product.getTotalCount();
       const featuredCount = await Product.getFeaturedCount();
       const discountedCount = await Product.getDiscountedCount();
@@ -19,6 +20,7 @@ class AdminService {
         featuredCount,
         discountedCount,
         productsByCategory,
+        latestProduct
       };
     } catch (error) {
       console.error("Error getting admin statistics:", error);

@@ -121,6 +121,22 @@ class Product {
       ])
       .toArray();
   }
+
+
+   /**
+   * Retrieves the most recently added product based on its insertion time (createdAt field).
+   * @returns {Promise<object|null>} A promise that resolves with the latest product document, or null if the collection is empty.
+   */
+   static async getLatestProduct() {
+    const collection = await database.getCollection("products");
+  
+    const latestProduct = await collection.find({})
+      .sort({ _id: -1 })  // This line is key
+      .limit(1)
+      .toArray();
+  
+    return latestProduct[0] || null;
+  }
 }
 
 module.exports = Product;
