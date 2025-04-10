@@ -134,8 +134,13 @@ class Product {
       .sort({ _id: -1 })  // This line is key
       .limit(1)
       .toArray();
-  
+
     return latestProduct[0] || null;
+  }
+
+  static async getHighestRatedProducts(limit = 5) {
+    const collection = await database.getCollection("products");
+    return collection.find({}).sort({ rating: -1 }).limit(limit).toArray();
   }
 }
 

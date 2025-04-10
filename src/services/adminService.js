@@ -6,13 +6,14 @@ const cache = require("../utils/cache");
 class AdminService {
   async getStatistics() {
     try {
-      //  count for top products, total products, featured products, discounted products and products by category
+      //  count for top products, total products, featured products, discounted products, products by category and highest rated products
       const topProducts = await Cart.getMostAddedProducts();
       const latestProduct = await Product.getLatestProduct(); // new 
       const totalProducts = await Product.getTotalCount();
       const featuredCount = await Product.getFeaturedCount();
       const discountedCount = await Product.getDiscountedCount();
       const productsByCategory = await Product.getProductsByCategory();
+      const highestRatedProducts = await Product.getHighestRatedProducts();
 
       return {
         topProducts,
@@ -20,7 +21,8 @@ class AdminService {
         featuredCount,
         discountedCount,
         productsByCategory,
-        latestProduct
+        latestProduct,
+        highestRatedProducts,
       };
     } catch (error) {
       console.error("Error getting admin statistics:", error);
