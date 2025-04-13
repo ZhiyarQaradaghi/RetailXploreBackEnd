@@ -88,32 +88,37 @@ class Cart {
 
   static async getMostAddedProducts(limit = 10) {
     const collection = await database.getCollection("carts");
-
-    // this is the query to get the most added products
     const result = await collection
       .aggregate([
         { $unwind: "$items" },
         {
           $group: {
             _id: "$items.productId",
-            count: { $sum: 1 },
+            totalQuantity: { $sum: 1 },
+            totalCarts: { $addToSet: "$cartId" },
           },
         },
-        { $sort: { count: -1 } },
+        {
+          $project: {
+            _id: 1,
+            totalQuantity: 1,
+            uniqueCartsCount: { $size: "$totalCarts" },
+          },
+        },
+        { $sort: { totalQuantity: -1 } },
         { $limit: limit },
       ])
       .toArray();
 
-    // this is the query to get the product details for each ID
     const productIds = result.map((item) => item._id);
     const products = await Product.getProductsByIds(productIds);
 
-    // this is the query to combine the count with the product details
     return result.map((item) => {
       const product = products.find((p) => p._id.toString() === item._id);
       return {
         productId: item._id,
-        count: item.count,
+        totalAddedToCart: item.totalQuantity,
+        uniqueCustomers: item.uniqueCartsCount,
         product: product
           ? {
               id: product._id.toString(),
@@ -121,6 +126,10 @@ class Cart {
               image: product.image,
               price: product.price,
               category: product.category,
+              rating: product.rating,
+              isDiscounted: product.isDiscounted,
+              discountRate: product.discountRate,
+              newPrice: product.newPrice,
             }
           : null,
       };
