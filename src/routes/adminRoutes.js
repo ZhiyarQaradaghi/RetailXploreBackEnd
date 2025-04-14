@@ -2,13 +2,18 @@ const express = require("express");
 const router = express.Router();
 const adminController = require("../controllers/adminController");
 const { authMiddleware, adminOnly } = require("../middleware/auth");
+const upload = require("../middleware/imageUpload");
 
 // we do this to apply the auth middleware to all admin routes so that we can only access the admin routes if the user is authenticated and is an admin
 router.use(authMiddleware, adminOnly);
 
 router.get("/statistics", adminController.getStatistics);
-router.post("/products", adminController.createProduct);
-router.put("/products/:id", adminController.updateProduct);
+router.post("/products", upload.single("image"), adminController.createProduct); 
+router.put(
+  "/products/:id",
+  upload.single("image"),
+  adminController.updateProduct
+); 
 router.delete("/products/:id", adminController.deleteProduct);
 router.post("/featured/:id", adminController.addFeaturedProduct);
 router.delete("/featured/:id", adminController.removeFeaturedProduct);

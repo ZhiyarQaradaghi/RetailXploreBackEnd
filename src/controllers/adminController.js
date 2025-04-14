@@ -18,6 +18,12 @@ class AdminController {
   async createProduct(req, res) {
     try {
       const productData = req.body;
+
+      // this is to add the image path to the product data
+      if (req.file) {
+        productData.image = `/images/${productData.category}/${req.file.filename}`;
+      }
+
       const product = await adminService.createProduct(productData);
       res.status(201).json({
         message: "Product created successfully",

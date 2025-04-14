@@ -74,3 +74,12 @@ npm install node-cache compression express-rate-limit
 - POST `/admin/barcode/:id` - Assign barcode to product
 - PUT `/admin/barcode/:id` - Update product barcode
 - DELETE `/admin/barcode/:id` - Remove product barcode
+
+
+## Image Upload
+
+- The image is uploaded to the `public/images` folder
+- The image is named with a unique identifier
+- The image is saved with the product data
+- Used multer to upload the image
+
