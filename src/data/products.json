@@ -8,6 +8,7 @@
       "price": "2000 IQD",
       "description": "There is only green available",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123457"
     },
     {
@@ -20,6 +21,7 @@
       "isDiscounted": true,
       "discountRate": 15,
       "newPrice": "1250 IQD",
+      "isFeatured": false,
       "barcode": "5901234123458"
     },
     {
@@ -30,6 +32,7 @@
       "price": "1800 IQD",
       "description": "Juicy and sweet oranges",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123459"
     },
     {
@@ -42,6 +45,7 @@
       "isDiscounted": true,
       "discountRate": 20,
       "newPrice": "2000 IQD",
+      "isFeatured": false,
       "barcode": "5901234123460"
     },
     {
@@ -52,6 +56,7 @@
       "price": "3000 IQD",
       "description": "Fresh and sweet strawberries",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123461"
     },
     {
@@ -62,6 +67,7 @@
       "price": "3000 IQD",
       "description": "Big and juicy watermelons",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123462"
     },
     {
@@ -72,6 +78,7 @@
       "price": "4000 IQD",
       "description": "Sweet and tropical taste",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123463"
     },
     {
@@ -84,6 +91,7 @@
       "isDiscounted": true,
       "discountRate": 20,
       "newPrice": "3250 IQD",
+      "isFeatured": false,
       "barcode": "5901234123464"
     },
     {
@@ -94,6 +102,7 @@
       "price": "2250 IQD",
       "description": "Rich in antioxidants and vitamins",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123465"
     }
   ],
@@ -107,6 +116,7 @@
       "price": "500 IQD",
       "description": "The most sold one",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123466"
     },
     {
@@ -117,6 +127,7 @@
       "price": "500 IQD",
       "description": "The classic cola taste",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123467"
     },
     {
@@ -127,6 +138,7 @@
       "price": "500 IQD",
       "description": "Refreshing and fizzy",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123468"
     },
     {
@@ -137,6 +149,7 @@
       "price": "500 IQD",
       "description": "Orange-flavored soft drink",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123469"
     },
     {
@@ -147,6 +160,7 @@
       "price": "500 IQD",
       "description": "High-energy citrus soda",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123470"
     },
     {
@@ -159,6 +173,7 @@
       "isDiscounted": true,
       "discountRate": 15,
       "newPrice": "2000 IQD",
+      "isFeatured": false,
       "barcode": "5901234123471"
     },
     {
@@ -171,6 +186,7 @@
       "isDiscounted": true,
       "discountRate": 10,
       "newPrice": "750 IQD",
+      "isFeatured": false,
       "barcode": "5901234123472"
     },
     {
@@ -181,6 +197,7 @@
       "price": "500 IQD",
       "description": "Sweet and fruity flavor",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123473"
     },
     {
@@ -191,6 +208,7 @@
       "price": "500 IQD",
       "description": "Lemon-lime refreshing drink",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123474"
     }
   ],
@@ -204,6 +222,7 @@
       "price": "2500 IQD/kg",
       "description": "High-quality basmati rice",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123475"
     },
     {
@@ -216,6 +235,7 @@
       "isDiscounted": true,
       "discountRate": 15,
       "newPrice": "1250 IQD",
+      "isFeatured": false,
       "barcode": "5901234123476"
     },
     {
@@ -226,6 +246,7 @@
       "price": "1200 IQD/kg",
       "description": "Used for soups and animal feed",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123477"
     },
     {
@@ -238,6 +259,7 @@
       "isDiscounted": true,
       "discountRate": 20,
       "newPrice": "1250 IQD",
+      "isFeatured": false,
       "barcode": "5901234123478"
     },
     {
@@ -248,6 +270,7 @@
       "price": "2000 IQD/kg",
       "description": "Perfect for a healthy breakfast",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123479"
     },
     {
@@ -260,6 +283,7 @@
       "isDiscounted": true,
       "discountRate": 25,
       "newPrice": "3750 IQD",
+      "isFeatured": false,
       "barcode": "5901234123480"
     },
     {
@@ -270,6 +294,7 @@
       "price": "1300 IQD/kg",
       "description": "Gluten-free and rich in fiber",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123481"
     },
     {
@@ -280,6 +305,7 @@
       "price": "2200 IQD/kg",
       "description": "Rich in protein and iron",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123482"
     },
     {
@@ -292,6 +318,7 @@
       "isDiscounted": true,
       "discountRate": 15,
       "newPrice": "1750 IQD",
+      "isFeatured": false,
       "barcode": "5901234123483"
     }
   ],
@@ -305,6 +332,7 @@
       "price": "2500 IQD",
       "description": "A good one",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123484"
     },
     {
@@ -317,6 +345,7 @@
       "isDiscounted": true,
       "discountRate": 15,
       "newPrice": "2500 IQD",
+      "isFeatured": false,
       "barcode": "5901234123485"
     },
     {
@@ -327,6 +356,7 @@
       "price": "4000 IQD",
       "description": "Made from pure cow's milk",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123486"
     },
     {
@@ -339,6 +369,7 @@
       "isDiscounted": true,
       "discountRate": 15,
       "newPrice": "2500 IQD",
+      "isFeatured": false,
       "barcode": "5901234123487"
     },
     {
@@ -349,6 +380,7 @@
       "price": "3500 IQD",
       "description": "Thick and fresh cream",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123488"
     },
     {
@@ -359,6 +391,7 @@
       "price": "3000 IQD",
       "description": "Fermented milk drink for gut health",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123489"
     },
     {
@@ -369,6 +402,7 @@
       "price": "6000 IQD/kg",
       "description": "Perfect for pizzas and pastas",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123490"
     },
     {
@@ -379,6 +413,7 @@
       "price": "4500 IQD",
       "description": "Clarified butter, rich in flavor",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123491"
     },
     {
@@ -391,6 +426,7 @@
       "isDiscounted": true,
       "discountRate": 15,
       "newPrice": "5000 IQD",
+      "isFeatured": false,
       "barcode": "5901234123492"
     }
   ],
@@ -404,6 +440,7 @@
       "price": "2250 IQD",
       "description": "Sweet and optimal taste!",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123493"
     },
     {
@@ -416,6 +453,7 @@
       "isDiscounted": true,
       "discountRate": 10,
       "newPrice": "1750 IQD",
+      "isFeatured": false,
       "barcode": "5901234123494"
     },
     {
@@ -426,6 +464,7 @@
       "price": "1500 IQD",
       "description": "Crispy and flavorful potato chips",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123495"
     },
     {
@@ -436,6 +475,7 @@
       "price": "3000 IQD",
       "description": "Stackable potato chips with a unique crunch",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123496"
     },
     {
@@ -448,6 +488,7 @@
       "isDiscounted": true,
       "discountRate": 15,
       "newPrice": "2000 IQD",
+      "isFeatured": false,
       "barcode": "5901234123497"
     },
     {
@@ -458,6 +499,7 @@
       "price": "2200 IQD",
       "description": "Crunchy biscuit, caramel, and chocolate layers",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123498"
     },
     {
@@ -468,6 +510,7 @@
       "price": "1800 IQD",
       "description": "Bold and cheesy flavored tortilla chips",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123499"
     },
     {
@@ -480,6 +523,7 @@
       "isDiscounted": true,
       "discountRate": 20,
       "newPrice": "2250 IQD",
+      "isFeatured": false,
       "barcode": "5901234123500"
     },
     {
@@ -490,6 +534,7 @@
       "price": "3200 IQD",
       "description": "Colorful chocolate candies with a crunchy shell",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123501"
     }
   ],
@@ -503,6 +548,7 @@
       "price": "1500 IQD",
       "description": "A good and healthy bread",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123502"
     },
     {
@@ -515,6 +561,7 @@
       "isDiscounted": true,
       "discountRate": 15,
       "newPrice": "1750 IQD",
+      "isFeatured": false,
       "barcode": "5901234123503"
     },
     {
@@ -525,6 +572,7 @@
       "price": "2500 IQD",
       "description": "Sweet, deep-fried treat with icing.",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123504"
     },
     {
@@ -535,6 +583,7 @@
       "price": "3000 IQD",
       "description": "Tangy, chewy, and perfect for sandwiches.",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123505"
     },
     {
@@ -547,6 +596,7 @@
       "isDiscounted": true,
       "discountRate": 15,
       "newPrice": "2000 IQD",
+      "isFeatured": false,
       "barcode": "5901234123506"
     },
     {
@@ -557,6 +607,7 @@
       "price": "3500 IQD",
       "description": "Soft, layered, and deliciously sweet.",
       "isDiscounted": false,
+      "isFeatured": false,
       "barcode": "5901234123507"
     },
     {
@@ -569,6 +620,7 @@
       "isDiscounted": true,
       "discountRate": 20,
       "newPrice": "2250 IQD",
+      "isFeatured": false,
       "barcode": "5901234123508"
     }
   ]

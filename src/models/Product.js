@@ -7,11 +7,10 @@ class Product {
     return collection.find({}).toArray();
   }
 
-  // not sure if limit should be 4 or change condition for featured products
-  // maybe get 4 random products in a certain time period or something
+  // changed to get products that are featured with isFeatured: true
   static async getFeaturedProducts(limit = 4) {
     const collection = await database.getCollection("products");
-    return collection.find({ isDiscounted: true }).limit(limit).toArray();
+    return collection.find({ isFeatured: true }).limit(limit).toArray();
   }
 
   // a case-insensitive search in all of the name, description, and category fields using $regex operator from mongodb
@@ -122,16 +121,16 @@ class Product {
       .toArray();
   }
 
-
-   /**
+  /**
    * Retrieves the most recently added product based on its insertion time (createdAt field).
    * @returns {Promise<object|null>} A promise that resolves with the latest product document, or null if the collection is empty.
    */
-   static async getLatestProduct() {
+  static async getLatestProduct() {
     const collection = await database.getCollection("products");
-  
-    const latestProduct = await collection.find({})
-      .sort({ _id: -1 })  // This line is key
+
+    const latestProduct = await collection
+      .find({})
+      .sort({ _id: -1 }) // This line is key
       .limit(1)
       .toArray();
 

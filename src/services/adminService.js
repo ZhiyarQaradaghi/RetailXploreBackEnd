@@ -8,7 +8,7 @@ class AdminService {
     try {
       //  count for top products, total products, featured products, discounted products, products by category and highest rated products
       const topProducts = await Cart.getMostAddedProducts();
-      const latestProduct = await Product.getLatestProduct(); // new 
+      const latestProduct = await Product.getLatestProduct(); // new
       const totalProducts = await Product.getTotalCount();
       const featuredCount = await Product.getFeaturedCount();
       const discountedCount = await Product.getDiscountedCount();
@@ -40,6 +40,7 @@ class AdminService {
       const product = {
         ...productData,
         isDiscounted: productData.isDiscounted || false,
+        isFeatured: productData.isFeatured || false,
         rating: productData.rating || 0,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -105,7 +106,7 @@ class AdminService {
   async setFeaturedStatus(id, isFeatured) {
     try {
       const product = await Product.updateProduct(id, {
-        isDiscounted: isFeatured,
+        isFeatured: isFeatured,
         updatedAt: new Date(),
       });
 
