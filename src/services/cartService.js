@@ -35,7 +35,7 @@ class CartService {
     }
   }
 
-  async addToCart(cartId, productId) {
+  async addToCart(cartId, productId, quantity = 1) {
     try {
       if (!cartId) {
         const newCart = await Cart.createCart();
@@ -46,7 +46,7 @@ class CartService {
         throw new Error("Product ID is required");
       }
 
-      const cart = await Cart.addToCart(cartId, productId);
+      const cart = await Cart.addToCart(cartId, productId, quantity);
 
       const cartWithProducts = await this.populateCartItems(cart);
 
@@ -118,7 +118,7 @@ class CartService {
     const productIds = cart.items.map((item) => item.productId);
     const products = await Product.getProductsByIds(productIds);
 
-    // this is to ensure that the cart items are valid by checking if the product exists in the database 
+    // this is to ensure that the cart items are valid by checking if the product exists in the database
     const populatedItems = cart.items
       .map((item) => {
         const product = products.find(
@@ -131,26 +131,61 @@ class CartService {
 
         return {
           productId: item.productId,
+          quantity: item.quantity || 1,
           product: {
             id: product._id.toString(),
             name: product.name,
             price: product.price,
             image: product.image,
             category: product.category,
-            description: product.description
+            description: product.description,
           },
         };
       })
-      .filter((item) => item !== null); 
+      .filter((item) => item !== null);
 
     return {
       cartId: cart.cartId,
       items: populatedItems,
-      totalItems: populatedItems.length,
+      totalItems: populatedItems.reduce(
+        (total, item) => total + (item.quantity || 1),
+        0
+      ),
       totalPrice: populatedItems.reduce((total, item) => {
-        return total + (item.product ? item.product.price : 0);
+        const price = parseFloat(item.product.price.replace(/[^\d.]/g, ""));
+        return total + price * (item.quantity || 1);
       }, 0),
     };
+  }
+
+  async updateCartItemQuantity(cartId, productId, quantity) {
+    try {
+      if (!cartId || !productId) {
+        throw new Error("Cart ID and Product ID are required");
+      }
+
+      if (isNaN(quantity) || !Number.isInteger(Number(quantity))) {
+        throw new Error("Quantity must be a valid integer");
+      }
+
+      const cart = await Cart.updateCartItemQuantity(
+        cartId,
+        productId,
+        Number(quantity)
+      );
+
+      const cartWithProducts = await this.populateCartItems(
+        cart || { cartId, items: [] }
+      );
+
+      const cacheKey = `cart_${cartId}`;
+      cache.set(cacheKey, cartWithProducts, 300);
+
+      return cartWithProducts;
+    } catch (error) {
+      console.error("Error updating cart item quantity:", error);
+      throw new Error("Failed to update cart item quantity");
+    }
   }
 }
 

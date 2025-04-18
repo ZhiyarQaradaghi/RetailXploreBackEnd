@@ -8,20 +8,35 @@ class Cart {
     return collection.findOne({ cartId });
   }
 
-  static async addToCart(cartId, productId) {
+  static async addToCart(cartId, productId, quantity = 1) {
     const collection = await database.getCollection("carts");
     const cart = await collection.findOne({ cartId });
 
     if (cart) {
-      const productExists = cart.items.some(
+      const existingItemIndex = cart.items.findIndex(
         (item) => item.productId === productId
       );
 
-      if (!productExists) {
+      if (existingItemIndex >= 0) {
+        // If product already exists, update its quantity
+        const currentQuantity = cart.items[existingItemIndex].quantity || 1;
+        cart.items[existingItemIndex].quantity = currentQuantity + quantity;
+
+        await collection.updateOne(
+          { cartId, "items.productId": productId },
+          {
+            $set: {
+              "items.$.quantity": cart.items[existingItemIndex].quantity,
+              updatedAt: new Date(),
+            },
+          }
+        );
+      } else {
+        // If product doesn't exist, add it with the specified quantity
         await collection.updateOne(
           { cartId },
           {
-            $push: { items: { productId } },
+            $push: { items: { productId, quantity } },
             $set: { updatedAt: new Date() },
           }
         );
@@ -31,7 +46,7 @@ class Cart {
     } else {
       const newCart = {
         cartId,
-        items: [{ productId }],
+        items: [{ productId, quantity }],
         createdAt: new Date(),
         updatedAt: new Date(),
       };
@@ -39,6 +54,27 @@ class Cart {
       await collection.insertOne(newCart);
       return newCart;
     }
+  }
+
+  static async updateCartItemQuantity(cartId, productId, quantity) {
+    const collection = await database.getCollection("carts");
+
+    if (quantity <= 0) {
+      // If quantity is 0 or negative, remove the item
+      return this.removeFromCart(cartId, productId);
+    }
+
+    await collection.updateOne(
+      { cartId, "items.productId": productId },
+      {
+        $set: {
+          "items.$.quantity": quantity,
+          updatedAt: new Date(),
+        },
+      }
+    );
+
+    return collection.findOne({ cartId });
   }
 
   static async removeFromCart(cartId, productId) {

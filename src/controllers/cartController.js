@@ -88,6 +88,41 @@ class CartController {
       res.status(500).json({ error: error.message || "Failed to clear cart" });
     }
   }
+
+  async updateCartItemQuantity(req, res) {
+    try {
+      const { cartId, productId, quantity } = req.body;
+
+      if (!cartId || !productId) {
+        return res
+          .status(400)
+          .json({ error: "Cart ID and Product ID are required" });
+      }
+
+      if (isNaN(quantity) || !Number.isInteger(Number(quantity))) {
+        return res
+          .status(400)
+          .json({ error: "Quantity must be a valid integer" });
+      }
+
+      const cart = await cartService.updateCartItemQuantity(
+        cartId,
+        productId,
+        Number(quantity)
+      );
+
+      res.json({
+        message: "Cart item quantity updated",
+        cart,
+      });
+    } catch (error) {
+      res
+        .status(500)
+        .json({
+          error: error.message || "Failed to update cart item quantity",
+        });
+    }
+  }
 }
 
 module.exports = new CartController();

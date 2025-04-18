@@ -25,6 +25,14 @@ const apiLimiter = rateLimit({
   message: "Too many requests, please try again later",
 });
 
+const cartLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // higher limit for cart operations
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: "Too many requests from this IP, please try again later",
+});
+
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN || "http://localhost:5173",
@@ -37,7 +45,7 @@ app.use("/images", express.static(path.join(__dirname, "../public/images")));
 
 // applied rate limiting to all product routes
 app.use("/", apiLimiter, productRoutes);
-app.use("/", apiLimiter, cartRoutes);
+app.use("/", cartLimiter, cartRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/auth", authRoutes);
 app.use("/admin", adminRoutes);
