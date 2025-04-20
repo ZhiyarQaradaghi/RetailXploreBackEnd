@@ -28,6 +28,24 @@ class ReviewController {
       res.status(500).json({ error: "Failed to fetch reviews" });
     }
   }
+
+  // New method to get top reviews
+  async getTopReviews(req, res) {
+    try {
+      const { productId, limit } = req.query;
+      if (!productId) {
+        return res.status(400).json({ error: "Product ID is required" });
+      }
+
+      const topReviews = await reviewService.getTopReviewsByProduct(
+        productId,
+        parseInt(limit) || 3
+      );
+      res.json({ message: "Top product reviews", reviews: topReviews });
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch top reviews" });
+    }
+  }
 }
 
 module.exports = new ReviewController();

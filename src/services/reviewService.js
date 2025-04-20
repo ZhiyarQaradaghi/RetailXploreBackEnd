@@ -11,6 +11,15 @@ class ReviewService {
   async getReviewsByProduct(productId) {
     return await Review.getReviewsByProduct(productId);
   }
+
+  // New method to get top reviews
+  async getTopReviewsByProduct(productId, limit = 3) {
+    if (!productId) {
+      throw new Error("Product ID is required");
+    }
+    return await Review.getTopReviewsByProduct(productId, limit);
+  }
+  
 }
 
 module.exports = new ReviewService();
