@@ -46,6 +46,23 @@ class ReviewController {
       res.status(500).json({ error: "Failed to fetch top reviews" });
     }
   }
+
+
+  // new
+  async getAverageRating(req, res) {
+    try {
+      const { productId } = req.query;
+      if (!productId) {
+        return res.status(400).json({ error: "Product ID is required" });
+      }
+
+      const averageRating = await reviewService.getAverageRatingByProduct(productId);
+      res.json({ message: "Average product rating", averageRating });
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch average rating" });
+    }
+  }
+
 }
 
 module.exports = new ReviewController();

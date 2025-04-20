@@ -20,6 +20,15 @@ class ReviewService {
     return await Review.getTopReviewsByProduct(productId, limit);
   }
   
+
+  // new
+  async getAverageRatingByProduct(productId) {
+    if (!productId) {
+      throw new Error("Product ID is required");
+    }
+    return await Review.getAverageRatingByProduct(productId);
+  }
+  
 }
 
 module.exports = new ReviewService();

@@ -39,6 +39,20 @@ class Review {
     }),
   }));
   }
+
+
+  // new
+  static async getAverageRatingByProduct(productId) {
+    const collection = await database.getCollection("reviews");
+    const result = await collection
+      .aggregate([
+        { $match: { productId: new ObjectId(productId) } },
+        { $group: { _id: null, averageRating: { $avg: "$rating" } } },
+      ])
+      .toArray();
+
+    return result.length > 0 ? result[0].averageRating : 0;
+  }
   
 }
 
