@@ -9,13 +9,32 @@ const cartRoutes = require("./routes/cartRoute");
 const reviewRoutes = require("./routes/reviewsRoute");
 const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const contactRoutes = require("./routes/contactRoutes");
+const pdfRoutes = require("./routes/pdfRoutes");
+const chatRoutes = require("./routes/chatRoutes");
 
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3003;
 
-app.use(compression());
+// CORS configuration
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN || "http://localhost:5173", // Frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+// this is for the preflight requests meaning when the client makes a request to the server it will send a preflight request to the server to check if the server is allowed to make the request
+app.options("*", cors());
+
+// Middleware
+app.use(compression()); // Compress responses
+app.use(express.json()); // Parse JSON bodies
+app.use(express.urlencoded({ extended: true }));
 
 // rate limiting
 const apiLimiter = rateLimit({
@@ -33,14 +52,6 @@ const cartLimiter = rateLimit({
   message: "Too many requests from this IP, please try again later",
 });
 
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
-    credentials: true,
-  })
-);
-
-app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "../public/images")));
 
 // applied rate limiting to all product routes
@@ -49,6 +60,9 @@ app.use("/", cartLimiter, cartRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/auth", authRoutes);
 app.use("/admin", adminRoutes);
+app.use("/", contactRoutes);
+app.use("/api", pdfRoutes);
+app.use("/api", chatRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

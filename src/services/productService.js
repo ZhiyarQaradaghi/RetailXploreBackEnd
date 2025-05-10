@@ -85,6 +85,26 @@ class ProductService {
       throw new Error("Failed to fetch product by barcode");
     }
   }
+
+  //  this is data for the chatbot
+  async getAllProductsForChat() {
+    try {
+      const products = await Product.getProducts();
+      return products.map((product) => ({
+        name: product.name,
+        category: product.category,
+        price: product.price,
+        description: product.description,
+        rating: product.rating,
+        isDiscounted: product.isDiscounted,
+        discountRate: product.discountRate,
+        newPrice: product.newPrice,
+      }));
+    } catch (error) {
+      console.error("Error fetching products for chat:", error);
+      throw new Error("Failed to fetch products");
+    }
+  }
 }
 
 module.exports = new ProductService();
