@@ -107,4 +107,4 @@ class ProductService {
   }
 }
 
-module.exports = ProductService;
+module.exports = new ProductService();

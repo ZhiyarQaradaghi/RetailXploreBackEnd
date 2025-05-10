@@ -1,15 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const Groq = require("groq-sdk");
-const ProductService = require("../services/productService");
+const productService = require("../services/productService");
 require("dotenv").config();
 
 // init groq
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY || "",
 });
-
-const productService = new ProductService();
 
 // check if the api key is configured
 router.use((req, res, next) => {
